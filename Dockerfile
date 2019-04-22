@@ -29,10 +29,12 @@ RUN git clone --depth 2 https://github.com/domoticz/domoticz.git && \
 		cmake -DCMAKE_BUILD_TYPE=Release . && \
 		make && make install
 
+# autoremove won't remove libcurl3
+RUN apt-mark manual libcurl3
 # cleanup
-RUN apt-get remove -y cmake make gcc g++ build-essential libssl-dev git zlib1g-dev libudev-dev libboost-all-dev && \
+RUN apt-get remove -y cmake make gcc g++ build-essential libboost-dev libboost-thread-dev libboost-system-dev libsqlite3-dev libcurl4-openssl-dev libssl-dev libusb-dev zlib1g-dev libudev-dev subversion && \
 		apt-get autoremove -y && \
-		apt-get clean && \
+		apt-get clean all && \
 		rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/*
 
 # disable cron service
