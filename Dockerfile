@@ -36,12 +36,12 @@ RUN apt-mark manual libcurl3
 RUN apt-get remove -y cmake make gcc g++ build-essential libboost-dev libboost-thread-dev libboost-system-dev libsqlite3-dev libcurl4-openssl-dev libssl-dev libusb-dev zlib1g-dev libudev-dev subversion && \
 		apt-get autoremove -y && \
 		apt-get clean all && \
-		rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/*
+		rm -rf /root/.cache /tmp/* /var/tmp/* /var/lib/apt/lists/*
 
 # disable cron service
 RUN touch /etc/service/cron/down
-# remove sshd service
-RUN rm -rf /etc/service/sshd
+# remove sshd service and regenerate ssh keys
+RUN rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 WORKDIR /opt
 EXPOSE 8080
