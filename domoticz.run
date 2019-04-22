@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+
+exec 2>&1
+exec /sbin/setuser $APP_USER $APP_HOME/domoticz -sslwww 0 -www $APP_PORT -dbase $APP_HOME/domoticz.db -log /var/log/domoticz.log
