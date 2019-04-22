@@ -5,6 +5,7 @@ ENV TZ Europe/Warsaw
 ENV TERM xterm
 
 ENV APP domoticz
+ENV APP_REV 4.9700
 WORKDIR /tmp
 
 # install requirements
@@ -24,8 +25,8 @@ RUN wget --quiet https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_6
 		./b2 install threading=multi link=static --with-thread --with-system
 
 # build and install Domoticz
-RUN git clone --depth 2 https://github.com/domoticz/domoticz.git && \
-		cd domoticz && \
+RUN git clone https://github.com/domoticz/domoticz.git && \
+		cd domoticz; git checkout tags/$APP_REV && \
 		cmake -DCMAKE_BUILD_TYPE=Release . && \
 		make && make install
 
