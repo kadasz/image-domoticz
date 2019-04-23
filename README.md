@@ -25,9 +25,9 @@ cd image-domoticz
 docker build -t image-domoticz .
 ```
 
-```diff
-- NOTE! Is recommended use builded image from dockerhub because the domoticz compiling process takes a long time.
-```
+
+__NOTE! Is recommended use builded image from dockerhub because the domoticz compiling process takes a long time.__
+
 
 ## Credits and More Info
 - about parent image: https://github.com/phusion/baseimage-docker
