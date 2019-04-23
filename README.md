@@ -8,6 +8,15 @@ Install and setup Domoticz usig docker container
 
 ## How use this image
 
+### Pull the image
+
+![Docker Build](https://img.shields.io/docker/cloud/build/kadasz/image-domoticz.svg) ![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/kadasz/image-domoticz.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/kadasz/image-domoticz.svg)
+
+
+```
+docker pull kadasz/image-domoticz
+```
+
 ### Build the image
 
 ```
@@ -16,7 +25,11 @@ cd image-domoticz
 docker build -t image-domoticz .
 ```
 
-## More Info
+```diff
+- NOTE! Is recommended use builded image from dockerhub because the domoticz compiling process takes a long time.
+```
+
+## Credits and More Info
 - about parent image: https://github.com/phusion/baseimage-docker
 - about dockerized service: http://www.domoticz.com
 
