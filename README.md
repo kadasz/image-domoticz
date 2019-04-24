@@ -3,6 +3,7 @@ Install and setup Domoticz usig docker container
 
 ## Pre requirements
 
+- have Linux or macOS
 - installed [docker][1] 
 - installed [git][2]
 
@@ -22,12 +23,24 @@ docker pull kadasz/image-domoticz
 ```
 git clone https://github.com/kadasz/image-domoticz.git
 cd image-domoticz
-docker build -t image-domoticz .
+docker build -t kadasz/image-domoticz .
 ```
 
 
 __NOTE! Is recommended use builded image from dockerhub because the domoticz compiling process takes a long time.__
 
+### Run a container
+Simply way just run command below:
+
+```
+docker run -d --name domoticz -p 8888:8080 kadasz/image-domoticz /sbin/my_init
+```
+__You can change the port 8888 to any other one.__
+
+#### Go to Domoticz
+```
+http://your_ip:8888/
+```
 
 ## Credits and More Info
 - about parent image: https://github.com/phusion/baseimage-docker
