@@ -43,5 +43,7 @@ RUN usermod -L $APP_USER
 RUN mkdir -p $APP_LOG_VOLUME $APP_DB_VOLUME
 RUN chown -R $APP_USER:$APP_USER $APP_HOME
 
+HEALTHCHECK --interval=1m --retries=1 --timeout=5s CMD wget --quiet --tries=1 --spider http://localhost:$APP_PORT/ || exit 1
+
 EXPOSE $APP_PORT
 CMD ["/sbin/my_init"]
