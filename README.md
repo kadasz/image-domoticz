@@ -27,7 +27,7 @@ docker build -t kadasz/image-domoticz .
 ```
 
 
-__NOTE! Is recommended to use `docker pull` instead of `docker build` because the domoticz compiling process takes a long time so download image from Docker Hub will be much faster.__
+__NOTE! Is recommended to use `docker pull` instead of `docker build` because the building process takes a more time so download image from Docker Hub will be much faster.__
 
 ### Run a container
 Simply way just run command below:
