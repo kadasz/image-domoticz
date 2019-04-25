@@ -64,7 +64,13 @@ docker exec -it domoticz head /opt/domoticz/log/domoticz.log
 2019-04-25 16:19:07.493  Active notification Subsystems: gcm, http (2/13)
 2019-04-25 16:19:07.497  Status: WebServer(HTTP) started on address: 0.0.0.0 with port 8888
 ```
-Done!
+or after about one minute run a command"
+
+```
+docker inspect --format '{{.State.Health.Status}}' domoticz
+healthy
+```
+if you see `healthy`, everything works well!
 
 #### Go to Domoticz
 Enter in your browser at address:
