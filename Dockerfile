@@ -8,6 +8,8 @@ ENV APP domoticz
 ENV APP_PORT 8080
 ENV APP_USER domoticz
 ENV APP_HOME /opt/domoticz
+ENV APP_LOG_VOLUME $APP_HOME/log
+ENV APP_DB_VOLUME $APP_HOME/db
 
 WORKDIR $APP_HOME
 
@@ -37,6 +39,8 @@ RUN addgroup --gid 9999 $APP_USER
 RUN adduser --uid 9999 --gid 9999 --disabled-password --no-create-home --home $APP_HOME --gecos "Domoticz user" $APP_USER
 RUN usermod -L $APP_USER
 
+# create volumes directory, set permissions
+RUN mkdir -p $APP_LOG_VOLUME $APP_DB_VOLUME
 RUN chown -R $APP_USER:$APP_USER $APP_HOME
 
 EXPOSE $APP_PORT

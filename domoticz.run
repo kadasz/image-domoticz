@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 
-exec /sbin/setuser $APP_USER $APP_HOME/domoticz -sslwww 0 -www $APP_PORT -dbase $APP_HOME/domoticz.db -log $APP_HOME/domoticz.log >> $APP_HOME/domoticz.log 2>&1
+exec /sbin/setuser $APP_USER $APP_HOME/domoticz -sslwww 0 -www $APP_PORT -dbase $APP_DB_VOLUME/domoticz.db -log $APP_LOG_VOLUME/domoticz.log >> $APP_LOG_VOLUME/domoticz.log 2>&1
