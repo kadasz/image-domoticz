@@ -41,15 +41,15 @@ __You can change the port `8888` to any other one.__
 First, create the directory on host and set right permissions for it:
 
 ```
-mkdir -p ~/domoticz/{logs,db}
-chmod -R o+rxw ~/domoticz/{logs,db}
+mkdir -p ~/domoticz/{logs,plugins,db}
+chmod -R o+rxw ~/domoticz/{logs,plugins,db}
 ```
 __Remember, that you can change `~/domoticz/config` as needed for your particular needs!__
 
 Next, crete a container hosting the volume mappings:
 
 ```
-docker run -d --name domoticz -p 8888:8080 -v ~/domoticz/logs/:/opt/domoticz/log -v ~/domoticz/db/:/opt/domoticz/db kadasz/image-domoticz /sbin/my_init
+docker run -d --name domoticz -p 8888:8080 -v ~/domoticz/logs/:/opt/domoticz/logs -v ~/domoticz/db/:/opt/domoticz/db -v ~/domoticz/plugins/:/opt/domoticz/plugins kadasz/image-domoticz /sbin/my_init
 ```
 
 Now, check that domoticz has started:
