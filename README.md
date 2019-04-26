@@ -33,7 +33,7 @@ __NOTE! Is recommended to use `docker pull` instead of `docker build` because th
 #### Simply way just run command below:
 
 ```
-docker run -d --name domoticz -p 8888:8080 kadasz/image-domoticz /sbin/my_init
+docker run -d --name domoticz --hostname domoticz -p 8888:8080 kadasz/image-domoticz /sbin/my_init
 ```
 __You can change the port `8888` to any other one.__
 
@@ -49,7 +49,11 @@ __Remember, that you can change `~/domoticz/config` as needed for your particula
 Next, crete a container hosting the volume mappings:
 
 ```
-docker run -d --name domoticz -p 8888:8080 -v ~/domoticz/logs/:/opt/domoticz/logs -v ~/domoticz/db/:/opt/domoticz/db -v ~/domoticz/plugins/:/opt/domoticz/plugins kadasz/image-domoticz /sbin/my_init
+docker run -d --name domoticz --hostname domoticz -p 8888:8080 \
+-v ~/domoticz/plugins/:/opt/domoticz/plugins \
+-v ~/domoticz/logs/:/opt/domoticz/logs \
+-v ~/domoticz/db/:/opt/domoticz/db \
+kadasz/image-domoticz /sbin/my_init
 ```
 
 Now, check that domoticz has started:
@@ -77,6 +81,13 @@ Enter in your browser at address:
 ```
 http://localhost:8888/
 ```
+
+### Parameterize environment variables
+You can set or change environment variables such as:
+
+| Parameter | Function |
+| :----: | --- |
+| `-e TZ=Europe/London` | specify a timezone to use e.g. Europe/London, default is Europe/Warsaw|
 
 ## Credits and More Info
 - about parent image: https://github.com/phusion/baseimage-docker
