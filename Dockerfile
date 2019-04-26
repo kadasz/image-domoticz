@@ -8,7 +8,8 @@ ENV APP domoticz
 ENV APP_PORT 8080
 ENV APP_USER domoticz
 ENV APP_HOME /opt/domoticz
-ENV APP_LOG_VOLUME $APP_HOME/log
+ENV APP_LOG_VOLUME $APP_HOME/logs
+ENV APP_PLUGINS_VOLUME $APP_HOME/plugins
 ENV APP_DB_VOLUME $APP_HOME/db
 
 WORKDIR $APP_HOME
@@ -43,7 +44,7 @@ RUN usermod -L $APP_USER
 RUN mkdir -p $APP_LOG_VOLUME $APP_DB_VOLUME
 RUN chown -R $APP_USER:$APP_USER $APP_HOME
 
-HEALTHCHECK --interval=1m --retries=1 --timeout=5s CMD wget --quiet --tries=1 --spider http://localhost:$APP_PORT/ || exit 1
+HEALTHCHECK --interval=30s --retries=1 --timeout=5s CMD wget --quiet --tries=1 --spider http://localhost:$APP_PORT/ || exit 1
 
 EXPOSE $APP_PORT
 CMD ["/sbin/my_init"]
