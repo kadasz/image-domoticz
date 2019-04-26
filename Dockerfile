@@ -1,7 +1,7 @@
 FROM phusion/baseimage:latest
 MAINTAINER Karol D Sz
 
-ENV TZ Europe/Warsaw
+ENV TZ "${TZ:-Europe/Warsaw}"
 ENV TERM xterm
 
 ENV APP domoticz
