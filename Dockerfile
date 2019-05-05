@@ -16,7 +16,7 @@ WORKDIR $APP_HOME
 
 # install requirements and useful libraries
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update; apt-get -q -y --no-install-recommends install psmisc curl less vim git wget net-tools lsof iproute2 tzdata build-essential python3-dev libssl-dev libusb-dev zlib1g-dev
+RUN apt-get update; apt-get -q -y --no-install-recommends install psmisc curl less vim git wget net-tools lsof iproute2 iputils-ping speedtest-cli sudo tzdata build-essential python3-dev libssl-dev libusb-dev zlib1g-dev
 
 RUN wget --quiet https://releases.domoticz.com/releases/release/domoticz_linux_x86_64.tgz
 RUN tar xfz domoticz_linux_x86_64.tgz
