@@ -27,7 +27,7 @@ docker build -t kadasz/image-domoticz .
 ```
 
 
-__NOTE! Is recommended to use `docker pull` instead of `docker build` because the building process takes a more time so download image from Docker Hub will be much faster.__
+__NOTE! Is recommended to use `docker pull` instead of `docker build` because the building process takes a more time so download image from [Docker Hub][3] will be much faster.__
 
 ### Run a container
 #### Simply way just run command below:
@@ -49,7 +49,7 @@ __Remember, that you can change `~/domoticz/config` as needed for your particula
 Next, crete a container hosting the volume mappings:
 
 ```
-docker run -d --name domoticz --hostname domoticz -p 8888:8080 \
+docker run -d --name domoticz --hostname domoticz --privileged -p 8888:8080 \
 -v ~/domoticz/plugins/:/opt/domoticz/plugins \
 -v ~/domoticz/logs/:/opt/domoticz/logs \
 -v ~/domoticz/db/:/opt/domoticz/db \
@@ -95,3 +95,4 @@ You can set or change environment variables such as:
 
 [1]:https://www.docker.com/get-started
 [2]:https://pl.atlassian.com/git/tutorials/install-git
+[3]:https://cloud.docker.com/repository/registry-1.docker.io/kadasz/image-domoticz
