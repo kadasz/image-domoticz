@@ -59,7 +59,11 @@ kadasz/image-domoticz /sbin/my_init
 Now, check that domoticz has started:
 
 ```
-docker exec -it domoticz head /opt/domoticz/log/domoticz.log
+docker exec -it domoticz head /opt/domoticz/logs/domoticz.log
+```
+
+you will see output similar to below:
+```
 2019-04-25 16:19:07.426  Status: Domoticz V4.9701 (c)2012-2018 GizMoCuz
 2019-04-25 16:19:07.433  Status: Build Hash: b47a877f, Date: 2018-06-23 16:27:56
 2019-04-25 16:19:07.433  Status: Startup Path: /opt/domoticz/
