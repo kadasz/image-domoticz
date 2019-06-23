@@ -7,6 +7,10 @@ Install and setup Domoticz usig docker container
 - installed [docker][1] 
 - installed [git][2]
 
+## Testing
+
+In my environment this image tested and works in docker on QNAP 
+
 ## How use this image
 
 ### Pull the image
@@ -37,7 +41,7 @@ docker run -d --name domoticz --hostname domoticz -p 8888:8080 kadasz/image-domo
 ```
 __You can change the port `8888` to any other one.__
 
-#### With using persistence storage for domoticz home directory.
+#### With using persistent storage for domoticz home directory.
 First, create the directory on host and set right permissions for it:
 
 ```
