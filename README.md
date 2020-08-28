@@ -13,7 +13,7 @@ In my environment this image tested and works in docker on QNAP
 
 ## How use this image
 
-### Pull the image
+### Pull the image from Docker Hub
 
 ![Docker Build](https://img.shields.io/docker/cloud/build/kadasz/image-domoticz.svg) ![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/kadasz/image-domoticz.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/kadasz/image-domoticz.svg)
 
@@ -33,12 +33,24 @@ docker build -t kadasz/image-domoticz .
 
 __NOTE! Is recommended to use `docker pull` instead of `docker build` because the building process takes a more time so download image from [Docker Hub][3] will be much faster.__
 
+
+### Use the image from GitHub Packages
+
+Pull image from the command line:
+```
+docker pull docker.pkg.github.com/kadasz/image-domoticz/image-domoticz:v1.0.0
+```
+
+
 ### Run a container
 #### Simply way just run command below:
 
 ```
 docker run -d --name domoticz --hostname domoticz -p 8888:8080 kadasz/image-domoticz /sbin/my_init
 ```
+
+__NOTE! If you want to use image from GitHub Packages, you'll need to add a tag also ie. docker.pkg.github.com/kadasz/image-domoticz/image-domoticz:v1.0.0__
+
 __You can change the port `8888` to any other one.__
 
 #### With using persistent storage for domoticz home directory.
