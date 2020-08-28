@@ -1,4 +1,4 @@
-FROM phusion/baseimage:latest
+FROM phusion/baseimage:bionic-1.0.0
 MAINTAINER Karol D Sz
 
 ENV TZ "${TZ:-Europe/Warsaw}"
